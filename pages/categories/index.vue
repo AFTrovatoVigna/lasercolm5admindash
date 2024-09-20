@@ -1,6 +1,6 @@
 <template>
   <div>
-    Las categories
+    <h1>Categorias</h1>
   </div>
 </template>
 
@@ -8,6 +8,11 @@
 
 </script>
 
-<style lang="scss" scoped>
-
+<style scoped>
+div h1 {
+  width: 100vw;
+  font-size: 2.4rem;
+  text-align: center;
+  margin: 30px 0;
+}
 </style>

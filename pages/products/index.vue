@@ -1,196 +1,53 @@
 <script setup>
+import { useRoute } from 'vue-router';
+// Importa el archivo JSON desde la carpeta utils
+import productsDemo from '../../utils/productsArray.json';
 
-  const productsAraray = [
-    {
-        "nombre": "Relicario",
-        "color": "Dorado",
-        "material": "Acero Inoxidable",
-        "medidas": "30 x 30 mm",
-        "stock": 5,
-        "valor": 50000.00,
-        "category": "collares"
-    },
-    {
-        "nombre": "Relicario",
-        "color": "Plateado",
-        "material": "Acero Inoxidable",
-        "medidas": "30 x 30 mm",
-        "stock": 5,
-        "valor": 50000.00,
-        "category": "collares"
-    },
-    {
-        "nombre": "Collar de corazon",
-        "color": "Dorado",
-        "material": "Acero Inoxidable",
-        "medidas": "32 x 30 mm",
-        "stock": 10,
-        "valor": 48000.00,
-        "category": "collares"
-    },
-    {
-        "nombre": "Collar de corazon",
-        "color": "Plateado",
-        "material": "Acero Inoxidable",
-        "medidas": "32 x 30 mm",
-        "stock": 8,
-        "valor": 48000.00,
-        "category": "collares"
-    },
-    {
-        "nombre": "Collar circular",
-        "color": "Dorado",
-        "material": "Acero Inoxidable",
-        "medidas": "30 x 30 mm",
-        "stock": 6,
-        "valor": 48000.00,
-        "category": "collares"
-    },
-    {
-        "nombre": "Collar circular",
-        "color": "Plateado",
-        "material": "Acero Inoxidable",
-        "medidas": "30 x 30 mm",
-        "stock": 6,
-        "valor": 48000.00,
-        "category": "collares"
-    },
-    {
-        "nombre": "Llavero placa",
-        "color": "Plateado",
-        "material": "Acero Inoxidable",
-        "medidas": "30 x 50 mm",
-        "stock": 6,
-        "valor": 45000.00,
-        "category": "llaveros"
-    },
-    {
-        "nombre": "Llavero placa",
-        "color": "Dorado",
-        "material": "Acero Inoxidable",
-        "medidas": "30 x 50 mm",
-        "stock": 4,
-        "valor": 45000.00,
-        "category": "llaveros"
-    },
-    {
-        "nombre": "Llavero con placa adicional",
-        "color": "Plateado",
-        "material": "Acero Inoxidable",
-        "medidas": "30 x 50 y 30 x 30 mm",
-        "stock": 6,
-        "valor": 45000.00,
-        "category": "llaveros"
-    },
-    {
-        "nombre": "Llavero con placa adicional",
-        "color": "Dorado",
-        "material": "Acero Inoxidable",
-        "medidas": "30 x 50 y 30 x 30 mm",
-        "stock": 6,
-        "valor": 45000.00,
-        "category": "llaveros"
-    },
-    {
-        "nombre": "Placa hueso grande",
-        "color": "Dorado",
-        "material": "Acero Inoxidable",
-        "medidas": "50 x 28 mm",
-        "stock": 8,
-        "valor": 25000.00,
-        "category": "placas mascotas"
-    },
-    {
-        "nombre": "Placa hueso grande",
-        "color": "Plateado",
-        "material": "Acero Inoxidable",
-        "medidas": "50 x 28 mm",
-        "stock": 10,
-        "valor": 25000.00,
-        "category": "placas mascotas"
-    },
-    {
-        "nombre": "Placa hueso pequeño",
-        "color": "Plateado",
-        "material": "Acero Inoxidable",
-        "medidas": "40 x 22 mm",
-        "stock": 6,
-        "valor": 22000.00,
-        "category": "placas mascotas"
-    },
-    {
-        "nombre": "Placa hueso pequeño",
-        "color": "Dorado",
-        "material": "Acero Inoxidable",
-        "medidas": "40 x 22 mm",
-        "stock": 5,
-        "valor": 22000.00,
-        "category": "placas mascotas"
-    },
-    {
-        "nombre": "Placa hueso pequeño",
-        "color": "Oro rosa",
-        "material": "Acero Inoxidable",
-        "medidas": "40 x 22 mm",
-        "stock": 6,
-        "valor": 22000.00,
-        "category": "placas mascotas"
-    },
-    {
-        "nombre": "Manilla de identificacion",
-        "color": "Negro",
-        "material": "Acero Inoxidable y silicona",
-        "medidas": "32 x 12 mm",
-        "stock": 10,
-        "valor": 40000.00,
-        "category": "manillas ID"
-    },
-    {
-        "nombre": "Manilla de identificacion",
-        "color": "Rosado",
-        "material": "Acero Inoxidable y silicona",
-        "medidas": "32 x 12 mm",
-        "stock": 10,
-        "valor": 40000.00,
-        "category": "manillas ID"
-    },
-    {
-        "nombre": "Manilla de identificacion",
-        "color": "Blanco",
-        "material": "Acero Inoxidable y silicona",
-        "medidas": "32 x 12 mm",
-        "stock": 10,
-        "valor": 40000.00,
-        "category": "manillas ID"
-    }
-];
-  const aqui = "Leras"
+// Obtener la ruta
+const route = useRoute();
 
+// Inicializamos la variable para los productos
+let productsArray = productsDemo;
+
+// Usamos el método onMounted para asegurarnos de que este código se ejecute solo en el lado del cliente
+import { onMounted } from 'vue';
+
+onMounted(() => {
+  // Comprobamos si localStorage está disponible (en el lado del cliente)
+  if (typeof localStorage !== 'undefined') {
+    const storedProducts = localStorage.getItem('productsArray');
+    // Si existe el array en localStorage, lo parseamos, si no, usamos productsDemo
+    productsArray = storedProducts ? JSON.parse(storedProducts) : productsDemo;
+  }
+  
+  console.log(productsArray);
+});
 </script>
 
 <template>
   <div>
     <h1>Productos</h1>
-    <div class="products-conatiner" >
-      <div class= "product-wraper" v-for="product in productsAraray" :key="product.nombre">
+    <div class="products-conatiner">
+      <div class="product-wraper" v-for="product in productsArray" :key="product.id">
         <p>NOMBRE: {{ product.nombre }}</p>
-        <p>COLOR: {{ product.color }}</p>
-        <p>MATERIAL: {{ product.material }}</p>
-        <p>MEDIDAS: {{ product.medidas }}</p>
-        <p>STOCK: {{ product.stock }}</p>
         <p>VALOR: {{ product.valor }}</p>
         <p>CATEGORIA: {{ product.category }}</p>
+        <p>id ------ {{ product.id }}</p>
+        <NuxtLink :to="{ path: `/products/${product.id}`, state: { productsArray } }">
+          Ver detalles
+        </NuxtLink>
       </div>
     </div>
-    
   </div>
 </template>
 
-<script setup>
-
-</script>
-
-<style  scoped>
+<style scoped>
+div h1 {
+  font-size: 2.4rem;
+  text-align: center;
+  margin: 30px 0;
+  background-color: aquamarine;
+}
 .products-conatiner {
   display: grid;
   grid-template-columns: 1fr 1fr 1fr 1fr 1fr;
@@ -201,6 +58,9 @@
   border: 1px solid black;
 }
 .products-conatiner .product-wraper {
-    padding: 10px;
+  padding: 10px;
+}
+.products-conatiner .product-wraper p {
+  font-size: 1.6rem;
 }
 </style>

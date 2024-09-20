@@ -48,7 +48,8 @@
 
 <style scoped>
 nav {
-  background: linear-gradient(180deg, rgba(252,230,242,1) 65%, rgba(244,246,165,1) 0%);
+  background: linear-gradient(to bottom, #ffe4e6, #e9d5ff, #fef9c3);
+
 }
 .header{
   display: flex;
