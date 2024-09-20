@@ -172,7 +172,7 @@
   <div>
     <h1>Productos</h1>
     <div class="products-conatiner" >
-      <div v-for="product in productsAraray" :key="product.nombre">
+      <div class= "product-wraper" v-for="product in productsAraray" :key="product.nombre">
         <p>NOMBRE: {{ product.nombre }}</p>
         <p>COLOR: {{ product.color }}</p>
         <p>MATERIAL: {{ product.material }}</p>
@@ -192,13 +192,15 @@
 
 <style  scoped>
 .products-conatiner {
-  display: flex;
-  justify-content: space-evenly;
-  align-items: center;
-  flex-wrap: wrap;
-  gap: 10px;
+  display: grid;
+  grid-template-columns: 1fr 1fr 1fr 1fr 1fr;
+  column-gap: 10px;
+  row-gap: 20px;
 }
 .products-conatiner div {
   border: 1px solid black;
+}
+.products-conatiner .product-wraper {
+    padding: 10px;
 }
 </style>
