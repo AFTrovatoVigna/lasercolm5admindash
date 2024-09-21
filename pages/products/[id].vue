@@ -1,4 +1,4 @@
-<script setup>
+<script setup> 
 import { useRoute, useRouter } from 'vue-router';
 // Importa el archivo JSON desde la carpeta utils
 import productsDemo from '../../utils/productsArray.json';
@@ -27,27 +27,39 @@ function deleteProduct(productId) {
 }
 </script>
 
-
 <template>
-  <div class="flex flex-col items-center mt-16">
-    <h2 class="text-3xl">{{ product?.nombre }}</h2>
-    <div class="grid grid-cols-[30%_70%] gap-4 w-full">
-      <div class="border border-black">
-        <img src="../../assets/images/coming-soon.png" alt="" class="w-full p-4">
-      </div>
-      <div class="flex flex-col justify-center border border-black pl-8">
-        <h3 class="text-2xl pb-4">Detalles del producto:</h3>
-        <p class="text-xl pb-2">COLOR: {{ product?.color }}</p>
-        <p class="text-xl pb-2">MATERIAL: {{ product?.material }}</p>
-        <p class="text-xl pb-2">MEDIDAS: {{ product?.medidas }}</p>
-        <p class="text-xl pb-2">STOCK: {{ product?.stock }}</p>
-        <p class="text-xl pb-2">VALOR: {{ product?.valor }}</p>
-        <p class="text-xl pb-2">CATEGORIA: {{ product?.category }}</p>
-      </div>
+  <div class="flex flex-col items-center my-8 px-4">
+    <div class="w-full mb-6 text-left">
+      <a href="/products" class="text-blue-600 hover:underline text-lg">&#8592; Volver a la tienda</a>
     </div>
-    <div class="flex w-full justify-around pt-5">
-      <button class="bg-lightblue-500 text-xl py-2 px-4 rounded-lg">Editar</button>
-      <button class="bg-red-500 text-xl py-2 px-4 rounded-lg" @click="deleteProduct(productId)">Borrar</button>
+
+ 
+    <div class="flex flex-col lg:flex-row w-[400px] lg:w-[90%] my-10 mx-auto bg-white shadow-lg rounded-lg overflow-hidden">
+
+      <div class="lg:w-1/2 flex justify-center items-center bg-gray-100">
+        <img src="../../assets/images/coming-soon.png" alt="Product Image" class="object-contain p-4 max-w-full h-auto">
+      </div>
+
+     
+      <div class="lg:w-full bg-pink-100 p-8">
+        <h1 class="text-5xl font-bold mb-4">{{ product?.nombre }}</h1>
+        <p class="text-gray-700 mb-4">{{ product?.descripcion }}</p>
+        <p class="text-3xl font-semibold text-gray-800 mb-4">$ {{ product?.valor }}</p>
+
+        <div class="mb-6">
+          <p class="text-3xl"><strong class="text-3xl" >COLOR:</strong> {{ product?.color }}</p>
+          <p class="text-3xl"><strong class="text-3xl">MATERIAL:</strong> {{ product?.material }}</p>
+          <p class="text-3xl"><strong class="text-3xl">MEDIDAS:</strong> {{ product?.medidas }}</p>
+          <p class="text-3xl"><strong class="text-3xl">STOCK:</strong> {{ product?.stock }}</p>
+          <p class="text-3xl"><strong class="text-3xl">CATEGORIA:</strong> {{ product?.category }}</p>
+        </div>
+
+        <div class="flex space-x-4 mt-6">
+          <button class="bg-blue-500 text-white text-lg py-2 px-6 rounded-lg hover:bg-blue-600">Editar</button>
+          <button class="bg-red-500 text-white text-lg py-2 px-6 rounded-lg hover:bg-red-600" @click="deleteProduct(productId)">Borrar</button>
+        </div>
+      </div>
     </div>
   </div>
 </template>
+
