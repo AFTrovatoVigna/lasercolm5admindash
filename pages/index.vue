@@ -1,6 +1,7 @@
 <template>
   <div>
-    <h1>Admin</h1>
+    <h1 class="text-[2.4rem] font-bold underline bg-slate-400">Admin</h1>
+    <!-- Ejemplo de uso de tailwind para dar estilos -->
     <h2>dashborad</h2>
   </div>
 </template>

@@ -26,41 +26,17 @@ onMounted(() => {
 
 <template>
   <div>
-    <h1>Productos</h1>
-    <div class="products-conatiner">
-      <div class="product-wraper" v-for="product in productsArray" :key="product.id">
-        <p>NOMBRE: {{ product.nombre }}</p>
-        <p>VALOR: {{ product.valor }}</p>
-        <p>CATEGORIA: {{ product.category }}</p>
-        <p>id ------ {{ product.id }}</p>
-        <NuxtLink :to="{ path: `/products/${product.id}`, state: { productsArray } }">
+    <h1 class="text-2xl text-center my-8">Productos</h1>
+    <div class="grid grid-cols-5 gap-x-2 gap-y-5">
+      <div class="border border-black p-2" v-for="product in productsArray" :key="product.id">
+        <p class="text-lg">NOMBRE: {{ product.nombre }}</p>
+        <p class="text-lg">VALOR: {{ product.valor }}</p>
+        <p class="text-lg">CATEGORIA: {{ product.category }}</p>
+        <p class="text-lg">id ------ {{ product.id }}</p>
+        <NuxtLink :to="{ path: `/products/${product.id}`, state: { productsArray } }" class="text-blue-600 underline">
           Ver detalles
         </NuxtLink>
       </div>
     </div>
   </div>
 </template>
-
-<style scoped>
-div h1 {
-  font-size: 2.4rem;
-  text-align: center;
-  margin: 30px 0;
-  background-color: aquamarine;
-}
-.products-conatiner {
-  display: grid;
-  grid-template-columns: 1fr 1fr 1fr 1fr 1fr;
-  column-gap: 10px;
-  row-gap: 20px;
-}
-.products-conatiner div {
-  border: 1px solid black;
-}
-.products-conatiner .product-wraper {
-  padding: 10px;
-}
-.products-conatiner .product-wraper p {
-  font-size: 1.6rem;
-}
-</style>

@@ -29,81 +29,25 @@ function deleteProduct(productId) {
 
 
 <template>
-  <div class= "main-container">
-    <h2>{{ product?.nombre }}</h2>
-    <div class= "product-wrap">
-      <div>
-        <img src="../../assets/images/coming-soon.png" alt="">
+  <div class="flex flex-col items-center mt-16">
+    <h2 class="text-3xl">{{ product?.nombre }}</h2>
+    <div class="grid grid-cols-[30%_70%] gap-4 w-full">
+      <div class="border border-black">
+        <img src="../../assets/images/coming-soon.png" alt="" class="w-full p-4">
       </div>
-      <div class="product-details">
-        <h3>Detalles del producto:</h3>
-        <p>COLOR: {{ product?.color }}</p>
-        <p>MATERIAL: {{ product?.material }}</p>
-        <p>MEDIDAS: {{ product?.medidas }}</p>
-        <p>STOCK: {{ product?.stock }}</p>
-        <p>VALOR: {{ product?.valor }}</p>
-        <p>CATEGORIA: {{ product?.category }}</p>
+      <div class="flex flex-col justify-center border border-black pl-8">
+        <h3 class="text-2xl pb-4">Detalles del producto:</h3>
+        <p class="text-xl pb-2">COLOR: {{ product?.color }}</p>
+        <p class="text-xl pb-2">MATERIAL: {{ product?.material }}</p>
+        <p class="text-xl pb-2">MEDIDAS: {{ product?.medidas }}</p>
+        <p class="text-xl pb-2">STOCK: {{ product?.stock }}</p>
+        <p class="text-xl pb-2">VALOR: {{ product?.valor }}</p>
+        <p class="text-xl pb-2">CATEGORIA: {{ product?.category }}</p>
       </div>
     </div>
-    <div class="buttons">
-      <button class="btn-edit">Editar</button>
-      <button class="btn-delete" @click="deleteProduct(productId)">Borrar</button>
-    </div> 
+    <div class="flex w-full justify-around pt-5">
+      <button class="bg-lightblue-500 text-xl py-2 px-4 rounded-lg">Editar</button>
+      <button class="bg-red-500 text-xl py-2 px-4 rounded-lg" @click="deleteProduct(productId)">Borrar</button>
+    </div>
   </div>
 </template>
-
-<style scoped>
-.main-container {
-  display: flex;
-  flex-direction: column;
-  align-items: center;
-  margin-top: 70px;
-}
-.main-container h2 {
-  font-size: 2.2rem;
-}
-.product-wrap {
-  display: grid;
-  grid-template-columns: 30% 70%;
-}
-.product-wrap div {
-  border: 1px solid black;
-}
-.product-wrap div img{
-  width: 100%;
-  padding: 15px;
-}
-.product-wrap .product-details {
-  display: flex;
-  flex-direction: column;
-  justify-content: center ;
-  border: 1px solid black;
-  padding-left: 30px;
-}
-.product-wrap .product-details h3 {
-  font-size: 1.8rem;
-  padding-bottom: 15px;
-}
-.product-wrap .product-details p {
-  font-size: 1.6rem;
-  padding-bottom: 10px;
-}
-.main-container .buttons {
-  display: flex;
-  width: 100%;
-  justify-content: space-around;
-  padding-top: 20px;
-}
-.main-container .buttons .btn-edit {
-  background-color: lightblue;
-  font-size: 1.6rem;
-  padding: 10px;
-  border-radius: 10px;
-}
-.main-container .buttons .btn-delete{
-  background-color: red;
-  font-size: 1.6rem;
-  padding: 10px;
-  border-radius: 10px;
-}
-</style>
