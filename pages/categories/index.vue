@@ -1,9 +1,13 @@
 <script setup>
+import { useRuntimeConfig } from 'nuxt/app'
 import { ref, onMounted } from "vue";
+
+const config = useRuntimeConfig();
+const apiBaseUrl = config.public.apiBaseUrl;
 let categories =ref([]);
 async function fetchCategories () {
   try {
-    const response = await fetch("http://localhost:3000/categories");
+    const response = await fetch(`${apiBaseUrl}/categories`);
     categories.value = await response.json();
   } catch (error) {
     console.error('Error fetching categories:', error);
