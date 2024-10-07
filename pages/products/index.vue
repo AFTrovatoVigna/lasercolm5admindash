@@ -1,11 +1,12 @@
 <script setup>
 import { onMounted, ref } from 'vue';
-import { useRuntimeConfig } from 'nuxt/app'
+import { useRuntimeConfig, useRouter } from 'nuxt/app'; // Use useRouter
 
 const config = useRuntimeConfig();
 const apiBaseUrl = config.public.apiBaseUrl; // Correctly access the public API base URL
 
 let productsArray = ref([]);
+const router = useRouter(); // Get router instance
 
 const fetchProducts = async () => {
   try {
@@ -25,18 +26,25 @@ const fetchProducts = async () => {
   }
 };
 
-
 onMounted(() => {
   fetchProducts();
 });
+
+// Navigate to /products/addproduct
+const goToAddProduct = () => {
+  router.push('/products/addproduct');
+};
 </script>
 
 <template class="h-[4000px] bg-white">
   <div class="p-8 w-[1200px] bg-white h-[1500px]">
     <div class="flex items-center justify-between mb-6">
       <h1 class="text-5xl font-bold">Mis productos</h1>
-      <button class="bg-pink-300 text-black text-2xl font-bold px-4 py-2 rounded-xl lg:h-[50px] lg:w-[200px] hover:bg-pink-400">
-        + Agregar producto 
+      <button 
+        class="bg-pink-300 text-black text-2xl font-bold px-4 py-2 rounded-xl lg:h-[50px] lg:w-[200px] hover:bg-pink-400" 
+        @click="goToAddProduct"
+      >
+        + Agregar producto
       </button>
     </div>
 
