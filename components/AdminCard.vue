@@ -12,7 +12,7 @@ defineProps({
     <div class="flex flex-col space-y-1">
       <h2 class="text-xl font-bold">{{ admin.name }}</h2>
       <p class="text-gray-600">Email: {{ admin.email }}</p>
-      <p class="text-gray-600">DNI: {{ admin.phone }}</p>
+      <p class="text-gray-600">Telefono: {{ admin.phone }}</p>
     </div>
     <!-- <NuxtLink
       :to="`/users/${user.id}`"
