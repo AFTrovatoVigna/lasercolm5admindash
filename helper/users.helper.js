@@ -54,3 +54,29 @@ export async function GetUserById(userId, token) {
       throw new Error(error);
   }
 }
+
+export async function UpdateUser(userId, updatedData, token) {
+  const config = useRuntimeConfig();
+  const apiBaseUrl = config.public.apiBaseUrl;
+
+  try {
+    const res = await fetch(`${apiBaseUrl}/users/${userId}`, {
+      method: 'PUT',
+      headers: {
+        'Content-Type': 'application/json',
+        Authorization: `Bearer ${token}`
+      },
+      body: JSON.stringify(updatedData) // Convert the updated data to JSON
+    });
+
+    if (!res.ok) {
+      throw new Error(`Error updating user: ${res.status} ${res.statusText}`);
+    }
+
+    const updatedUser = await res.json(); // Parse the updated user data from the response
+    return updatedUser;
+  } catch (error) {
+    console.error('Error updating user:', error);
+    throw new Error(error);
+  }
+}

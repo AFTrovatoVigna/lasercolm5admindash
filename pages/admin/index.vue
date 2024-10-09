@@ -1,11 +1,14 @@
 <script setup>
 import { ref, onMounted } from 'vue';
+import { useRouter } from 'vue-router';
 import { GetAllAdmins } from '@/helper/admin.helper.js'; 
 import AdminCard from '~/components/AdminCard.vue'; 
 
 const adminsArray = ref([]); 
 const isLoading = ref(true);
 const fetchError = ref(null);
+
+const router = useRouter(); // Use Vue Router
 
 const fetchAdmins = async () => {
   isLoading.value = true; // Set loading to true
@@ -26,8 +29,14 @@ const fetchAdmins = async () => {
   }
 };
 
+// Navigate to the create admin page
+const goToAddAdmin = () => {
+  router.push('/admin/createAdmin');
+};
+
 onMounted(fetchAdmins);
 </script>
+
 
 <template>
   <div class="mt-8">
@@ -39,7 +48,7 @@ onMounted(fetchAdmins);
       class="bg-pink-300 text-black text-2xl font-bold px-4 py-2 rounded-xl lg:h-[50px] lg:w-[200px] hover:bg-pink-400" 
       @click="goToAddAdmin"
     >
-      + Agregar Administradore
+      + Agregar Administrador
     </button>
     </div>
     <div v-if="fetchError" class="text-center text-red-500">{{ fetchError }}</div>
