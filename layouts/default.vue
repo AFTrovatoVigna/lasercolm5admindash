@@ -1,39 +1,33 @@
 <script setup>
 import { ref, onMounted, onBeforeUnmount } from 'vue';
-import { useRouter } from 'vue-router';
-import Menu from '~/components/menu.vue';
+import SessionLayout from '~/layouts/session.vue';
+import SignInLayout from '~/layouts/signIn.vue';
 
-const router = useRouter();
-let showMenu = ref(false);
+let isUserLoggedIn = ref(false);
 
 const checkUserSession = () => {
   const userSession = localStorage.getItem('userSession');
-  showMenu.value = !!userSession; // Toggle menu based on session presence
+  isUserLoggedIn.value = !!userSession; // Set to true if a session exists
 };
 
 onMounted(() => {
-  // Check for user session on mount
   checkUserSession();
-
-  // Listen for 'storage' changes (e.g., across tabs)
   window.addEventListener('storage', checkUserSession);
-
-  // If no userSession, redirect to login
-  if (!showMenu.value) {
-    router.push('/login'); 
-  }
 });
 
 onBeforeUnmount(() => {
-  // Clean up event listener on component unmount
   window.removeEventListener('storage', checkUserSession);
 });
 </script>
 
 <template>
   <div class="flex h-screen">
-    <!-- Conditionally render Menu if user session exists -->
-    <Menu class="w-1/6 h-full" v-if="showMenu" />
-    <slot />
+    <div class="w-full h-full">
+      <!-- Conditionally render the session or sign-in layout based on the user session -->
+      <SessionLayout v-if="isUserLoggedIn">
+        <slot />
+      </SessionLayout>
+      <SignInLayout v-else />
+    </div>
   </div>
 </template>

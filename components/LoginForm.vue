@@ -18,7 +18,7 @@ const handleLogin = async () => {
     };
     localStorage.setItem('userSession', JSON.stringify(userSession));
 
-    router.push('/'); // Adjust the route as needed
+    await router.push('/'); // Adjust the route as needed
   } catch (error) {
     console.error("Login failed:", error);
     alert('Login failed: ' + error.message);

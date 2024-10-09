@@ -17,7 +17,7 @@ const fetchProducts = async () => {
     }
     
     const text = await response.text(); // Read the response as text first
-    console.log('Raw response:', text); // Log the raw response for debugging
+    
     const data = JSON.parse(text); // Manually parse the JSON
     productsArray.value = data;
     
