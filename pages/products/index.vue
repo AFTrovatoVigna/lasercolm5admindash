@@ -37,7 +37,7 @@ const goToAddProduct = () => {
 </script>
 
 <template class="h-[4000px] bg-white">
-  <div class="p-8 w-[1200px] bg-white h-[1500px]">
+  <div class="p-8 w-[100%] bg-white h-[1500px]">
     <div class="flex items-center justify-between mb-6">
       <h1 class="text-5xl font-bold">Mis productos</h1>
       <button 
@@ -70,12 +70,11 @@ const goToAddProduct = () => {
             </td>
 
             <td class="px-6 py-4 border border-pink-100">
-              <input 
-                type="number" 
-                v-model="product.stock" 
-                class="border-2 border-pink-200 rounded-[30px] p-2 w-24 text-center text-2xl text-black"
-                :class="product.stock == 0 ? 'bg-red-200 border-red-500' : 'bg-white'" 
-              />
+              <p class="border-2 border-pink-200 rounded-[30px] p-2 w-24 text-center text-2xl text-black" 
+              :class="product.stock === 0 ? 'bg-red-200 border-red-500' : 'bg-white'">
+                {{ product.stock }}
+              </p>
+
             </td>
 
             <td class="px-6 py-4 text-2xl text-black border border-pink-100">

@@ -1,12 +1,13 @@
 <script setup>
 import { ref } from 'vue';
-import { useRouter } from 'vue-router';
+// import { useRouter } from 'vue-router';
 import { Login } from '@/helper/auth.helper.js';
+import Swal from 'sweetalert2';
 
 const email = ref("");
 const password = ref("");
 
-const router = useRouter(); // Get router instance
+// const router = useRouter(); // Get router instance
 
 const handleLogin = async () => {
   try {
@@ -18,12 +19,25 @@ const handleLogin = async () => {
     };
     localStorage.setItem('userSession', JSON.stringify(userSession));
 
-    await router.push('/'); // Adjust the route as needed
+    // Show the success message and wait for user confirmation before redirecting
+    Swal.fire({
+      title: "Te logueaste correctamente",
+      icon: "success",
+      confirmButtonText: "OK"
+    }).then(() => {
+      // Redirect to the home page after the user presses OK
+      window.location.href = '/';
+    });
   } catch (error) {
     console.error("Login failed:", error);
-    alert('Login failed: ' + error.message);
+    Swal.fire({
+      title: "No pudimos corroborar tus datos. Inténtalo nuevamente",
+      icon: "error",
+      confirmButtonText: "OK"
+    });
   }
 };
+
 </script>
 
 <template>

@@ -1,14 +1,28 @@
 <script setup>
 import { useRouter } from 'vue-router';
+import Swal from 'sweetalert2';
 
-const router = useRouter();
+// const router = useRouter();
 
 const handleLogout = () => {
-  // Remove the userSession from localStorage
-  localStorage.removeItem('userSession');
-  
-  // Redirect to the home page or login page
-  router.push('/');
+  // Show a confirmation dialog
+  Swal.fire({
+    title: '¿Estás seguro?',
+    text: "Estás a punto de cerrar sesión",
+    icon: 'warning',
+    showCancelButton: true,
+    confirmButtonColor: '#3085d6',
+    cancelButtonColor: '#d33',
+    confirmButtonText: 'Sí, cerrar sesión',
+    cancelButtonText: 'Cancelar'
+  }).then((result) => {
+    if (result.isConfirmed) {
+      // If the user confirms, proceed with the logout
+      localStorage.removeItem('userSession');
+      window.location.href = '/'; // Redirect to the home or login page
+    } 
+    // If the user cancels, nothing happens
+  });
 };
 </script>
 
@@ -47,6 +61,12 @@ const handleLogout = () => {
           <NuxtLink to="/categories" class="flex items-center">
             <img src="../assets/Icons/category.svg" class="bg-pink-300 ml-3 rounded-[80px] p-2" alt="">
             <span class="ml-4 text-[20px]">Categorias</span>
+          </NuxtLink>
+        </li>
+        <li>
+          <NuxtLink to="/admin" class="flex items-center">
+            <img src="../assets/Icons/admin.svg" class="bg-pink-300 ml-3 rounded-[80px] p-2" alt="">
+            <span class="ml-4 text-[20px]">Administradores</span>
           </NuxtLink>
         </li>
         <li>

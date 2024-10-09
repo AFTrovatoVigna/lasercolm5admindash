@@ -12,6 +12,7 @@
   "dependencies": {
     "@nuxtjs/dotenv": "^1.4.2",
     "nuxt": "^3.13.0",
+    "sweetalert2": "^11.14.2",
     "vue": "latest",
     "vue-router": "latest"
   },
