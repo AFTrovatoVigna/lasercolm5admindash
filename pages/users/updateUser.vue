@@ -96,48 +96,41 @@ const cancelEdit = () => {
 </script>
 
 <template>
-  <div class="flex items-center justify-center min-h-screen bg-gray-100">
-    <form class="w-full max-w-md p-6 bg-white rounded-lg shadow-md">
-      <h2 class="mb-4 text-2xl font-bold text-center">Editar Usuario</h2>
-      <div class="mb-4">
-        <label class="block mb-2 text-sm font-bold text-gray-700">Nombre</label>
-        <input v-model="user.name" type="text" class="w-full px-3 py-2 border rounded-md" />
+  <div class="flex items-center justify-center min-h-screen bg-pink-100">
+    <form class="w-full max-w-xl p-10 bg-white rounded-xl shadow-lg">
+      <h2 class="mb-6 text-4xl font-bold text-center text-pink-700">Editar Usuario</h2>
+      <div class="mb-6">
+        <label class="block mb-3 text-xl font-bold text-pink-600">Nombre</label>
+        <input v-model="user.name" type="text" class="w-full px-5 py-4 border border-pink-300 rounded-md focus:outline-none focus:ring-2 focus:ring-pink-400" />
       </div>
-      <!-- <div class="mb-4">
-        <label class="block mb-2 text-sm font-bold text-gray-700">DNI</label>
-        <input v-model="user.Dni" type="text" class="w-full px-3 py-2 border rounded-md" />
-      </div> -->
-      <div class="mb-4">
-        <label class="block mb-2 text-sm font-bold text-gray-700">Fecha de Nacimiento</label>
-        <input v-model="user.birthDate" type="date" class="w-full px-3 py-2 border rounded-md" />
+      <div class="mb-6">
+        <label class="block mb-3 text-xl font-bold text-pink-600">Fecha de Nacimiento</label>
+        <input v-model="user.birthDate" type="date" class="w-full px-5 py-4 border border-pink-300 rounded-md focus:outline-none focus:ring-2 focus:ring-pink-400" />
       </div>
-      <!-- <div class="mb-4">
-        <label class="block mb-2 text-sm font-bold text-gray-700">Teléfono</label>
-        <input v-model="user.phone" type="tel" class="w-full px-3 py-2 border rounded-md" />
-      </div> -->
-      <div class="mb-4">
-        <label class="block mb-2 text-sm font-bold text-gray-700">País</label>
-        <input v-model="user.country" type="text" class="w-full px-3 py-2 border rounded-md" />
+      <div class="mb-6">
+        <label class="block mb-3 text-xl font-bold text-pink-600">País</label>
+        <input v-model="user.country" type="text" class="w-full px-5 py-4 border border-pink-300 rounded-md focus:outline-none focus:ring-2 focus:ring-pink-400" />
       </div>
-      <div class="mb-4">
-        <label class="block mb-2 text-sm font-bold text-gray-700">Ciudad</label>
-        <input v-model="user.city" type="text" class="w-full px-3 py-2 border rounded-md" />
+      <div class="mb-6">
+        <label class="block mb-3 text-xl font-bold text-pink-600">Ciudad</label>
+        <input v-model="user.city" type="text" class="w-full px-5 py-4 border border-pink-300 rounded-md focus:outline-none focus:ring-2 focus:ring-pink-400" />
       </div>
-      <div class="mb-4">
-        <label class="block mb-2 text-sm font-bold text-gray-700">Dirección</label>
-        <input v-model="user.address" type="text" class="w-full px-3 py-2 border rounded-md" />
+      <div class="mb-6">
+        <label class="block mb-3 text-xl font-bold text-pink-600">Dirección</label>
+        <input v-model="user.address" type="text" class="w-full px-5 py-4 border border-pink-300 rounded-md focus:outline-none focus:ring-2 focus:ring-pink-400" />
       </div>
       <div class="flex justify-between">
-        <button @click.prevent="saveChanges" class="px-4 py-2 text-white bg-green-500 rounded-md hover:bg-green-600">
+        <button @click.prevent="saveChanges" class="px-7 py-4 text-xl text-white transition bg-pink-800 rounded-md hover:bg-green-600 focus:bg-green-600">
           Guardar Cambios
         </button>
-        <button @click.prevent="cancelEdit" class="px-4 py-2 text-white bg-red-500 rounded-md hover:bg-red-600">
+        <button @click.prevent="cancelEdit" class="px-7 py-4 text-xl text-white transition bg-pink-800 rounded-md hover:bg-red-600 focus:bg-red-600">
           Cancelar
         </button>
       </div>
     </form>
   </div>
 </template>
+
 
 <style scoped>
 /* Custom styles (if needed) */

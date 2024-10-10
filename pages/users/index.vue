@@ -27,7 +27,7 @@ onMounted(fetchUsers);
 
 <template>
   <div class="mt-8">
-    <h1 class="mb-8 text-3xl font-semibold text-center">Usuarios</h1>
+    <h1 class="mb-8 lg:text-4xl font-semibold text-center">Usuarios</h1>
     <div class="flex flex-col space-y-4">
       <div v-if="isLoading" class="text-lg text-gray-500">Cargando usuarios...</div>
       <UserCard

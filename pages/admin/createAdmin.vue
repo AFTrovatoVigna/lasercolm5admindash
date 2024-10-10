@@ -57,32 +57,73 @@ const cancel = () => {
 
 
 <template>
-  <div class="flex flex-col items-center justify-center min-h-screen p-4">
-    <h1 class="mb-6 text-3xl font-semibold">Crear Administrador</h1>
-    <form @submit.prevent="submitForm" class="w-full max-w-md space-y-4">
+  <div class="flex flex-col items-center justify-center min-h-screen p-4 bg-pink-50">
+    <h1 class="mb-6 text-5xl font-semibold text-gray-800">Crear Administrador</h1>
+    <form @submit.prevent="submitForm" class="w-full max-w-md p-8 bg-white rounded-lg shadow-md space-y-6">
       <div>
-        <label class="block mb-2 font-medium" for="name">Nombre:</label>
-        <input v-model="name" type="text" id="name" class="w-full px-4 py-2 border rounded-lg" required />
+        <label class="block mb-2 text-lg font-medium text-gray-800" for="name">Nombre:</label>
+        <input
+          v-model="name"
+          type="text"
+          id="name"
+          class="w-full px-5 py-3 border border-pink-300 rounded-lg focus:outline-none focus:ring-2 focus:ring-pink-400"
+          required
+        />
       </div>
       <div>
-        <label class="block mb-2 font-medium" for="email">Email:</label>
-        <input v-model="email" type="email" id="email" class="w-full px-4 py-2 border rounded-lg" required />
+        <label class="block mb-2 text-lg font-medium text-gray-800" for="email">Email:</label>
+        <input
+          v-model="email"
+          type="email"
+          id="email"
+          class="w-full px-5 py-3 border border-pink-300 rounded-lg focus:outline-none focus:ring-2 focus:ring-pink-400"
+          required
+        />
       </div>
       <div>
-        <label class="block mb-2 font-medium" for="phone">Teléfono:</label>
-        <input v-model="phone" type="number" id="phone" class="w-full px-4 py-2 border rounded-lg" required />
+        <label class="block mb-2 text-lg font-medium text-gray-800" for="phone">Teléfono:</label>
+        <input
+          v-model="phone"
+          type="number"
+          id="phone"
+          class="w-full px-5 py-3 border border-pink-300 rounded-lg focus:outline-none focus:ring-2 focus:ring-pink-400"
+          required
+        />
       </div>
       <div>
-        <label class="block mb-2 font-medium" for="password">Contraseña:</label>
-        <input v-model="password" type="password" id="password" class="w-full px-4 py-2 border rounded-lg" required />
+        <label class="block mb-2 text-lg font-medium text-gray-800" for="password">Contraseña:</label>
+        <input
+          v-model="password"
+          type="password"
+          id="password"
+          class="w-full px-5 py-3 border border-pink-300 rounded-lg focus:outline-none focus:ring-2 focus:ring-pink-400"
+          required
+        />
       </div>
       <div>
-        <label class="block mb-2 font-medium" for="passwordConfirmation">Confirmar Contraseña:</label>
-        <input v-model="passwordConfirmation" type="password" id="passwordConfirmation" class="w-full px-4 py-2 border rounded-lg" required />
+        <label class="block mb-2 text-lg font-medium text-gray-800" for="passwordConfirmation">Confirmar Contraseña:</label>
+        <input
+          v-model="passwordConfirmation"
+          type="password"
+          id="passwordConfirmation"
+          class="w-full px-5 py-3 border border-pink-300 rounded-lg focus:outline-none focus:ring-2 focus:ring-pink-400"
+          required
+        />
       </div>
       <div class="flex justify-between">
-        <button type="button" @click="cancel" class="px-4 py-2 text-white bg-red-500 rounded-lg hover:bg-red-600">Cancelar</button>
-        <button type="submit" class="px-4 py-2 text-white bg-blue-500 rounded-lg hover:bg-blue-600">Crear Administrador</button>
+        <button
+          type="button"
+          @click="cancel"
+          class="px-5 py-3 text-lg text-white bg-pink-600 rounded-lg hover:bg-pink-800"
+        >
+          Cancelar
+        </button>
+        <button
+          type="submit"
+          class="px-5 py-3 text-lg text-white bg-pink-600 rounded-lg hover:bg-pink-800"
+        >
+          Crear Administrador
+        </button>
       </div>
     </form>
   </div>

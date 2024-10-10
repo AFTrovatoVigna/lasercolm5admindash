@@ -39,13 +39,13 @@ onMounted(fetchAdmins);
 
 
 <template>
-  <div class="mt-8">
-    <h1 class="mb-8 text-3xl font-semibold text-center">Administradores</h1>
+  <div class="mt-8 lg:mt-14">
+    <h1 class="mb-8 text-3xl lg:text-5xl font-semibold text-center">Administradores</h1>
     
     <div v-if="isLoading" class="text-center">Loading...</div>
     <div class="flex justify-end mb-4"> <!-- Use flex to align the button -->
     <button 
-      class="bg-pink-300 text-black text-2xl font-bold px-4 py-2 rounded-xl lg:h-[50px] lg:w-[200px] hover:bg-pink-400" 
+      class="bg-pink-300 text-black text-2xl mr-10 font-bold px-4 py-2 rounded-xl lg:h-[50px] lg:w-[200px] hover:bg-pink-400" 
       @click="goToAddAdmin"
     >
       + Agregar Administrador

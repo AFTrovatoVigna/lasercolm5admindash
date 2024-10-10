@@ -41,30 +41,40 @@ const handleLogin = async () => {
 </script>
 
 <template>
-  <div class="flex flex-col w-full max-w-sm mx-auto">
-    <h1 class="mt-8 text-[2.2rem] font-semibold text-gray-700 lg:mt-0">
+  <div class="flex flex-col w-full max-w-sm mx-auto p-6 bg-white rounded-lg shadow-lg lg:max-w-md">
+    <h1 class="mt-8 text-[2.2rem] font-semibold text-gray-800 lg:mt-0 text-center">
       Bienvenido 
     </h1>
-    <p class="mt-2 text-[1rem] text-gray-400">Por favor ingrese sus credenciales</p>
+    <p class="mt-2 text-[1rem] lg:text-[13px] text-gray-800 text-center">Por favor ingrese sus credenciales</p>
 
-    <label class="mt-5 text-[1.6rem] font-semibold text-gray-500" for="email">Email</label>
+    <label class="mt-5 text-[1.6rem] font-semibold text-pink-600" for="email">Email</label>
     <input
       id="email"
-      class="w-full px-3 py-2 mt-1 text-[1.6rem] border border-gray-300 rounded shadow-sm focus:ring-2 focus:ring-indigo-400 focus:outline-none"
+      class="w-full px-4 py-3 mt-1 text-[1.4rem] border border-pink-300 rounded-lg shadow-sm focus:ring-2 focus:ring-pink-400 focus:outline-none"
       type="email" v-model="email"
     />
 
-    <label class="mt-5 text-[1.6rem] font-semibold text-gray-500" for="password">Password</label>
+    <label class="mt-5 text-[1.6rem] font-semibold text-pink-600" for="password">Password</label>
     <input
       id="password"
-      class="w-full px-3 py-2 mt-1 text-[1.6rem] border border-gray-300 rounded shadow-sm focus:ring-2 focus:ring-indigo-400 focus:outline-none"
+      class="w-full px-4 py-3 mt-1 text-[1.4rem] border border-pink-300 rounded-lg shadow-sm focus:ring-2 focus:ring-pink-400 focus:outline-none"
       type="password" v-model="password"
     />
 
     <button
-      class="w-full px-5 py-2 mt-5 text-[1.6rem] font-semibold text-white bg-indigo-500 rounded shadow hover:bg-indigo-600" @click="handleLogin"
+      class="w-full px-5 py-3 mt-6 text-[1.6rem] font-semibold text-white bg-pink-500 rounded-lg shadow-lg hover:bg-pink-600 focus:bg-pink-600 transition duration-300 ease-in-out"
+      @click="handleLogin"
     >
       Sign in
     </button>
   </div>
 </template>
+
+<style scoped>
+@media (min-width: 768px) {
+  /* Estilos adicionales para pantallas más grandes */
+  .container {
+    max-width: 480px;
+  }
+}
+</style>
