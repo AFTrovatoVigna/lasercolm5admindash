@@ -27,18 +27,18 @@ const submitForm = () => {
 </script>
 
 <template>
-  <div class="flex justify-center w-full m-4">
+  <div class="flex justify-center w-full m-4 lg:mt-20">
     <form
       @submit.prevent="submitForm"
-      class="flex flex-col mt-4 p-6 text-black bg-pink-200 shadow-xl rounded-xl h-[90vh] w-[60vw]"
+      class="flex flex-col mt-4 p-8 text-black bg-pink-200 shadow-lg rounded-xl max-w-[700px] w-full h-auto"
     >
       <!-- Form Fields -->
-      <div class="flex-1 ">
-        <label for="nombre" class="block mb-1">Nombre</label>
+      <div class="mb-4">
+        <label for="nombre" class="block mb-1 text-xl font-semibold">Nombre</label>
         <input
           id="nombre"
           placeholder="Ingresa el nombre"
-          class="w-full p-2 text-black bg-white border rounded-lg shadow-md focus:outline-none focus:border-pink-900"
+          class="w-full p-3 text-black bg-white border rounded-lg shadow-md focus:outline-none focus:ring-2 focus:ring-pink-600"
           required
           type="text"
           v-model="nombre"
@@ -46,12 +46,12 @@ const submitForm = () => {
         />
       </div>
 
-      <div class="flex-1 ">
-        <label for="color" class="block mb-1">Color</label>
+      <div class="mb-4">
+        <label for="color" class="block mb-1 text-xl font-semibold">Color</label>
         <input
           id="color"
           placeholder="Ingresa el color"
-          class="w-full p-2 text-black bg-white border rounded-lg shadow-md focus:outline-none focus:border-pink-900"
+          class="w-full p-3 text-black bg-white border rounded-lg shadow-md focus:outline-none focus:ring-2 focus:ring-pink-600"
           required
           type="text"
           v-model="color"
@@ -59,12 +59,12 @@ const submitForm = () => {
         />
       </div>
 
-      <div class="flex-1 ">
-        <label for="material" class="block mb-1">Material</label>
+      <div class="mb-4">
+        <label for="material" class="block mb-1 text-xl font-semibold">Material</label>
         <input
           id="material"
           placeholder="Ingresa el material"
-          class="w-full p-2 text-black bg-white border rounded-lg shadow-md focus:outline-none focus:border-pink-900"
+          class="w-full p-3 text-black bg-white border rounded-lg shadow-md focus:outline-none focus:ring-2 focus:ring-pink-600"
           required
           type="text"
           v-model="material"
@@ -72,12 +72,12 @@ const submitForm = () => {
         />
       </div>
 
-      <div class="flex-1 ">
-        <label for="medidas" class="block mb-1">Medidas</label>
+      <div class="mb-4">
+        <label for="medidas" class="block mb-1 text-xl font-semibold">Medidas</label>
         <input
           id="medidas"
           placeholder="Ingresa las medidas"
-          class="w-full p-2 text-black bg-white border rounded-lg shadow-md focus:outline-none focus:border-pink-900"
+          class="w-full p-3 text-black bg-white border rounded-lg shadow-md focus:outline-none focus:ring-2 focus:ring-pink-600"
           required
           type="text"
           v-model="medidas"
@@ -85,12 +85,12 @@ const submitForm = () => {
         />
       </div>
 
-      <div class="flex-1 ">
-        <label for="stock" class="block mb-1">Stock</label>
+      <div class="mb-4">
+        <label for="stock" class="block mb-1 text-xl font-semibold">Stock</label>
         <input
           id="stock"
           placeholder="Ingresa el stock"
-          class="w-full p-2 text-black bg-white border rounded-lg shadow-md focus:outline-none focus:border-pink-900"
+          class="w-full p-3 text-black bg-white border rounded-lg shadow-md focus:outline-none focus:ring-2 focus:ring-pink-600"
           required
           type="number"
           v-model="stock"
@@ -98,12 +98,12 @@ const submitForm = () => {
         />
       </div>
 
-      <div class="flex-1 ">
-        <label for="valor" class="block mb-1">Precio</label>
+      <div class="mb-4">
+        <label for="valor" class="block mb-1 text-xl font-semibold">Precio</label>
         <input
           id="valor"
           placeholder="Ingresa el precio"
-          class="w-full p-2 text-black bg-white border rounded-lg shadow-md focus:outline-none focus:border-pink-900"
+          class="w-full p-3 text-black bg-white border rounded-lg shadow-md focus:outline-none focus:ring-2 focus:ring-pink-600"
           required
           type="number"
           v-model="valor"
@@ -112,11 +112,11 @@ const submitForm = () => {
       </div>
 
       <!-- Image Upload Field -->
-      <div class="flex-1 w-full">
-        <label for="imgUrl" class="block mb-1">Subir Imagen</label>
+      <div class="mb-4">
+        <label for="imgUrl" class="block mb-1 text-xl font-semibold">Subir Imagen</label>
         <input
           id="imgUrl"
-          class="w-full p-2 text-black rounded-lg shadow-md focus:outline-none focus:border-pink-900"
+          class="w-full p-3 text-black rounded-lg shadow-md focus:outline-none focus:ring-2 focus:ring-pink-600"
           type="file"
           accept="image/*"
           @change="onFileSelected"
@@ -127,15 +127,18 @@ const submitForm = () => {
       <!-- Submit Button -->
       <button
         type="submit"
-        class="px-4 py-2 mt-4 text-white bg-pink-600 rounded-lg shadow-md hover:bg-pink-500 focus:outline-none"
+        class="px-6 py-3 mt-4 text-lg text-white bg-pink-600 rounded-lg shadow-md hover:bg-pink-500 focus:outline-none focus:ring-2 focus:ring-pink-600"
       >
-        Registrar
+        Agregar producto +
       </button>
     </form>
   </div>
 </template>
 
-
 <style scoped>
-
+/* Opcional: estilos adicionales para mejorar la apariencia */
+label {
+  font-family: 'Arial', sans-serif;
+}
 </style>
+

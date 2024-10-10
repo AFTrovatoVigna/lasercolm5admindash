@@ -51,31 +51,43 @@ function deleteProduct(productId) {
 <template>
   <div class="flex flex-col items-center px-4 my-8">
     <div class="w-full mb-6 text-left">
-      <a href="/products" class="text-lg text-blue-600 hover:underline">&#8592; Volver a la tienda</a>
+      <a href="/products" class="text-xl text-blue-600 hover:underline">&#8592; Volver a la tienda</a>
     </div>
 
-    <div class="flex flex-col lg:flex-row w-[400px] lg:w-[90%] my-10 mx-auto bg-white shadow-lg rounded-lg overflow-hidden">
-      <div class="flex items-center justify-center bg-gray-100 lg:w-1/2">
-        <img :src="product?.imgUrl" alt="Product Image" class="object-contain h-auto max-w-full p-4">
+    <div class="flex flex-col lg:flex-row w-full lg:w-[80%] my-10 mx-auto bg-white shadow-lg rounded-lg overflow-hidden">
+      <div class="flex items-center justify-center bg-gray-100 lg:w-1/2 p-4">
+        <img :src="product?.imgUrl" alt="Product Image" class="object-contain h-64 w-full max-w-sm mx-auto">
       </div>
 
-      <div class="p-8 bg-pink-100 lg:w-full">
-        <h1 class="mb-4 text-5xl font-bold">{{ product?.nombre }}</h1>
-        <p class="mb-4 text-3xl font-semibold text-gray-800">$ {{ product?.valor }}</p>
+      <div class="p-6 bg-pink-200 lg:w-1/2">
+        <h1 class="mb-4 text-4xl font-bold text-pink-800">{{ product?.nombre }}</h1>
+        <p class="mb-4 text-2xl font-semibold text-gray-800">$ {{ product?.valor }}</p>
 
         <div class="mb-6">
-          <p class="text-3xl"><strong>COLOR:</strong> {{ product?.color }}</p>
-          <p class="text-3xl"><strong>MATERIAL:</strong> {{ product?.material }}</p>
-          <p class="text-3xl"><strong>MEDIDAS:</strong> {{ product?.medidas }}</p>
-          <p class="text-3xl"><strong>STOCK:</strong> {{ product?.stock }}</p>
-          <!-- <p class="text-3xl"><strong>CATEGORÍA:</strong> {{ product?.category.name }}</p> -->
+          <p class="text-xl lg:text-3xl"><span class="text-xl lg:text-3xl">Color:</span> {{ product?.color }}</p>
+          <p class="text-xl lg:text-3xl"><span class="text-xl lg:text-3xl">Material:</span> {{ product?.material }}</p>
+          <p class="text-xl lg:text-3xl"><span class="text-xl lg:text-3xl">Medidas:</span> {{ product?.medidas }}</p>
+          <p class="text-xl lg:text-3xl"><span class="text-xl lg:text-3xl">Stock:</span> {{ product?.stock }}</p>
         </div>
 
-        <div class="flex mt-6 space-x-4">
-          <button class="px-6 py-2 text-lg text-white bg-blue-500 rounded-lg hover:bg-blue-600">Editar</button>
-          <button class="px-6 py-2 text-lg text-white bg-red-500 rounded-lg hover:bg-red-600" @click="deleteProduct(productId)">Borrar</button>
+        <div class="flex justify-between mt-6 space-x-4">
+          <button class="flex-1 px-4 py-2 text-lg lg:text-xl text-white bg-pink-600 rounded-lg hover:bg-pink-700">Editar</button>
+          <button class="flex-1 px-4 py-2 text-lg lg:text-xl text-white bg-pink-800 rounded-lg hover:bg-pink-900" @click="deleteProduct(productId)">Borrar</button>
         </div>
       </div>
     </div>
   </div>
 </template>
+
+<style scoped>
+h1, p {
+  font-family: 'Arial', sans-serif;
+}
+
+/* Mejorar la adaptabilidad en pantallas pequeñas */
+@media (max-width: 640px) {
+  .flex-1 {
+    margin-bottom: 1rem;
+  }
+}
+</style>
